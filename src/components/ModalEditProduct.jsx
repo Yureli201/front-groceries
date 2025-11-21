@@ -1,7 +1,7 @@
 import ProductServices from "../services/ProductServices";
 import { useState } from "react";
 
-function ProductForm() {
+function ModalEditProduct() {
   const [product, setProduct] = useState({
     barcode: "",
     description: "",
@@ -149,4 +149,4 @@ function ProductForm() {
   );
 }
 
-export default ProductForm;
+export default ModalEditProduct;

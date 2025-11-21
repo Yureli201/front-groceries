@@ -1,8 +1,7 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Navbar from "./components/navbar.jsx";
-import ProductForm from "./components/productForm.jsx";
+import ProductForm from "./components/ProductForm.jsx";
 import ProductTable from "./components/productTable.jsx";
 
 function App() {
