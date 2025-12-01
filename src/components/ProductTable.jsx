@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import ProductServices from "../services/ProductServices";
+import ModalEditProduct from "./ModalEditProduct";
 
 function ProductTable() {
   const [products, setProducts] = useState([]);
+  const [selectedBarcode, setSelectedBarcode] = useState(null);
 
   const loadProducts = async () => {
     const response = await ProductServices.getAll();
@@ -44,7 +46,13 @@ function ProductTable() {
                 <td>{product.price}</td>
                 <td>{product.cost}</td>
                 <td>
-                  <button className="btn btn-warning btn-sm">
+                  <button
+                    className="btn btn-warning btn-sm"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onClick={() => setSelectedBarcode(product.barcode)}
+                  >
                     Editar
                   </button>
                 </td>
@@ -61,6 +69,7 @@ function ProductTable() {
           </tbody>
         </table>
       </div>
+      <ModalEditProduct barcode={selectedBarcode} onProductUpdated={loadProducts} />
     </div>
   );
 }
